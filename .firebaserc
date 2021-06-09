@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mobile-d7f26": {
+      "hosting": {
+        "app": [
+          "mobile-d7f26"
+        ]
+      }
+    }
+  }
+}

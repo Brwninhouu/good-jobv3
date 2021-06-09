@@ -1,0 +1,108 @@
+<ion-header>
+    <ion-toolbar>
+
+        <!-- Acesso ao menu -->
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <!-- Título da página -->
+        <ion-title>Cadastrar serviços</ion-title>
+
+        <!-- Logotipo -->
+        <ion-img routerLink="/job" src="assets/em01.jpg" slot="end" class="logo-geral"></ion-img>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding ion-padding-horizontal">
+
+
+    <p>Preencha todos os campos com atenção para uma experiência melhor em nosso aplicativo.</p>
+    <p class="ion-text-center">
+        <ion-text color="danger"><small>Todos os campos são obrigatórios.</small></ion-text>
+    </p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="registerSend()">
+
+        <ion-list lines="full" class="ion-no-padding">
+
+            <!-- Campo nome (name) -->
+            <ion-item>
+                <ion-label for="service" position="floating" color="willian">
+                    <ion-icon name="hammer-outline"></ion-icon>  Serviço:
+                    <ion-text color="danger" *ngIf="registerForm.controls.service.errors">
+                        <small *ngIf="registerForm.controls.service.errors.required">* Obrigatório</small>
+                        <small *ngIf="registerForm.controls.service.errors.minlength">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="service" name="service" formControlName="service"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label for="name" position="floating" color="willian">
+                    <ion-icon name="person"></ion-icon> Nome:
+                    <ion-text color="danger" *ngIf="registerForm.controls.name.errors">
+                        <small *ngIf="registerForm.controls.name.errors.required">* Obrigatório</small>
+                        <small *ngIf="registerForm.controls.name.errors.email">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="name" name="name" formControlName="name"></ion-input>
+            </ion-item>
+
+            <!-- Campo e-mail (email) -->
+            <ion-item>
+                <ion-label for="value" position="floating" color="willian">
+                    <ion-icon name="cash-outline"></ion-icon>  Valor:
+                    <ion-text color="danger" *ngIf="registerForm.controls.value.errors">
+                        <small *ngIf="registerForm.controls.value.errors.required">* Obrigatório</small>
+                        <small *ngIf="registerForm.controls.value.errors.email">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="value" name="value" formControlName="value"></ion-input>
+            </ion-item>
+
+
+
+            <!-- Campo 'Whatsapp' (whatsapp) -->
+            <ion-item>
+                <ion-label for="whatsapp" position="floating" color="willian">
+                    <ion-icon name="logo-whatsapp"></ion-icon>  Whatsapp:
+                    <ion-text color="danger" *ngIf="registerForm.controls.whatsapp.errors">
+                        <small *ngIf="registerForm.controls.whatsapp.errors.required">* Obrigatório</small>
+                        <small *ngIf="registerForm.controls.whatsapp.errors.pattern">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="whatsapp" name="whatsapp" formControlName="whatsapp"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label for="maps" position="floating" color="willian">
+                    <ion-icon name="map"></ion-icon>  Bairro:
+                    <ion-text color="danger" *ngIf="registerForm.controls.maps.errors">
+                         <small *ngIf="registerForm.controls.maps.errors.required">* Obrigatório</small>
+                         <small *ngIf="registerForm.controls.maps.errors.pattern">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="maps" name="maps" formControlName="maps"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label for="photo" position="floating" color="willian">
+                    <ion-icon name="camera"></ion-icon> Url da foto:
+                    <ion-text color="danger" *ngIf="registerForm.controls.photo.errors">
+                         <small *ngIf="registerForm.controls.photo.errors.required">* Obrigatório</small>
+                         <small *ngIf="registerForm.controls.photo.errors.pattern">* Inválido</small>
+                    </ion-text>
+                </ion-label>
+                <ion-input type="text" id="photo" name="photo" formControlName="photo"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-button class="ion-margin-vertical" type="submit" expand="block" [disabled]="registerForm.invalid" color="dark">Cadastrar
+        </ion-button>
+
+    </form>
+
+</ion-content>
